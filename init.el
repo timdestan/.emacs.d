@@ -1,3 +1,4 @@
+;; TODO: This causes issues if there is another Emacs running.
 (server-start)
 
 (setq
@@ -10,9 +11,17 @@
  use-package-always-ensure t
  sentence-end-double-space nil
 
+ c-basic-indent 2
+ tab-width 2
+ tab-stop-list (number-sequence 2 200 2)
+ indent-line-function 'insert-tab
+
  ;; Mac-specific options.
  mac-option-key-is-meta t
  mac-command-key-is-meta nil)
+
+(if window-system
+    (add-to-list 'default-frame-alist '(fullscreen . maximized)))
 
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
@@ -24,8 +33,10 @@
 (set-face-attribute 'default nil :height 160)
 
 ;; Free up screen real estate.
-(menu-bar-mode -1)
-(tool-bar-mode -1)
+(if (functionp 'menu-bar-mode)
+    (menu-bar-mode -1))
+(if (functionp 'tool-bar-mode)
+    (tool-bar-mode -1))
 
 ;; Pretty good, until I find something better.
 (ido-mode 1)
@@ -36,7 +47,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes (quote (wombat)))
- '(package-selected-packages (quote (exec-path-from-shell use-package))))
+ '(indent-tabs-mode nil)
+ '(package-selected-packages (quote (git-gutter exec-path-from-shell use-package)))
+ '(standard-indent 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -45,6 +58,8 @@
  )
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+(defalias 'qrr 'query-replace-regexp)
 
 ;; the package manager
 (require 'package)
@@ -67,6 +82,9 @@
   (use-package "exec-path-from-shell")
   (exec-path-from-shell-initialize))
 
+(use-package "git-gutter")
+(global-git-gutter-mode +1)
+
 ;; Load tuareg site file. Add opam emacs directory to the load-path
 ;; TODO: This should probably be conditional. Opam/Merlin may not be installed.
 
@@ -86,3 +104,6 @@
 (setq merlin-use-auto-complete-mode 'easy)
 ;; Use opam switch to lookup ocamlmerlin binary
 (setq merlin-command 'opam)
+
+;; Enable OCaml indenting.
+(require 'ocp-indent)
