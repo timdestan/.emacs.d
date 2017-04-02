@@ -50,7 +50,7 @@
  '(indent-tabs-mode nil)
  '(package-selected-packages
    (quote
-    (rainbow-delimiters git-gutter exec-path-from-shell use-package)))
+    (haskell-mode rainbow-delimiters git-gutter exec-path-from-shell use-package)))
  '(standard-indent 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
