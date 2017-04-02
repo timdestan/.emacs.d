@@ -48,7 +48,9 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes (quote (wombat)))
  '(indent-tabs-mode nil)
- '(package-selected-packages (quote (git-gutter exec-path-from-shell use-package)))
+ '(package-selected-packages
+   (quote
+    (rainbow-delimiters git-gutter exec-path-from-shell use-package)))
  '(standard-indent 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -84,6 +86,9 @@
 
 (use-package "git-gutter")
 (global-git-gutter-mode +1)
+
+(use-package "rainbow-delimiters")
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; Load tuareg site file. Add opam emacs directory to the load-path
 ;; TODO: This should probably be conditional. Opam/Merlin may not be installed.
