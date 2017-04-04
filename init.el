@@ -13,6 +13,7 @@
  require-final-newline t
 
  c-basic-indent 2
+ rust-indent-offset 2
  tab-width 2
  tab-stop-list (number-sequence 2 200 2)
  indent-line-function 'insert-tab
@@ -51,7 +52,7 @@
  '(indent-tabs-mode nil)
  '(package-selected-packages
    (quote
-    (haskell-mode rainbow-delimiters git-gutter exec-path-from-shell use-package)))
+    (rust-mode haskell-mode rainbow-delimiters git-gutter exec-path-from-shell use-package)))
  '(standard-indent 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
