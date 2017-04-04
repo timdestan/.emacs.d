@@ -10,6 +10,7 @@
  show-paren-delay 0.5
  use-package-always-ensure t
  sentence-end-double-space nil
+ require-final-newline t
 
  c-basic-indent 2
  tab-width 2
