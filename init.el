@@ -52,7 +52,7 @@
  '(indent-tabs-mode nil)
  '(package-selected-packages
    (quote
-    (rust-mode haskell-mode rainbow-delimiters git-gutter exec-path-from-shell use-package)))
+    (markdown-mode rust-mode haskell-mode rainbow-delimiters git-gutter exec-path-from-shell use-package)))
  '(standard-indent 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -63,7 +63,16 @@
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;; Trying out some suggestions from Steve Yegge's effective emacs:
+;; https://sites.google.com/site/steveyegge2/effective-emacs
+
 (defalias 'qrr 'query-replace-regexp)
+
+(global-set-key "\C-w" 'backward-kill-word)
+(global-set-key "\C-x\C-k" 'kill-region)
+
+(global-set-key "\C-x\C-m" 'execute-extended-command)
+(global-set-key "\C-c\C-m" 'execute-extended-command)
 
 ;; the package manager
 (require 'package)
