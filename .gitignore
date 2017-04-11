@@ -1,3 +1,6 @@
 auto-save-list/
 elpa/
 ido.last
+
+# Don't include Google stuff in public github
+google/

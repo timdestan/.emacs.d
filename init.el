@@ -70,6 +70,7 @@
 
 (global-set-key "\C-w" 'backward-kill-word)
 (global-set-key "\C-x\C-k" 'kill-region)
+(global-set-key "\C-c\C-k" 'kill-region)
 
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-c\C-m" 'execute-extended-command)
@@ -89,6 +90,13 @@
   (package-install 'use-package))
 (require 'use-package)
 
+;; Conditionally load Google stuff.
+(if (file-exists-p "~/.emacs.d/google/init.el")
+    (progn
+      (add-to-list 'load-path "~/.emacs.d/google/")
+      (load-file "~/.emacs.d/google/init.el"))
+  (message "skipping google"))
+
 ;; On OSX, windowed Emacs does not get same environment variables as
 ;; shell Emacs. This ensures that the $PATH variable is set correctly.
 (when (memq window-system '(mac ns))
@@ -102,24 +110,24 @@
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; Load tuareg site file. Add opam emacs directory to the load-path
-;; TODO: This should probably be conditional. Opam/Merlin may not be installed.
+;; TODO: Make these conditional on opam being installed and add them back
 
-(setq opam-share
-      (substring
-       (shell-command-to-string "opam config var share 2> /dev/null") 0 -1))
-(load (concat opam-share "/emacs/site-lisp/tuareg-site-file"))
-(add-to-list 'load-path (concat opam-share "/emacs/site-lisp"))
+;; (setq opam-share
+;;       (substring
+;;        (shell-command-to-string "opam config var share 2> /dev/null") 0 -1))
+;; (load (concat opam-share "/emacs/site-lisp/tuareg-site-file"))
+;; (add-to-list 'load-path (concat opam-share "/emacs/site-lisp"))
 
 ;; Load merlin-mode
-(require 'merlin)
+;; (require 'merlin)
 ;; Start merlin on ocaml files
-(add-hook 'tuareg-mode-hook 'merlin-mode t)
-(add-hook 'caml-mode-hook 'merlin-mode t)
+;; (add-hook 'tuareg-mode-hook 'merlin-mode t)
+;; (add-hook 'caml-mode-hook 'merlin-mode t)
 
 ;; Enable auto-complete
-(setq merlin-use-auto-complete-mode 'easy)
+;; (setq merlin-use-auto-complete-mode 'easy)
 ;; Use opam switch to lookup ocamlmerlin binary
-(setq merlin-command 'opam)
+;; (setq merlin-command 'opam)
 
 ;; Enable OCaml indenting.
-(require 'ocp-indent)
+;; (require 'ocp-indent)
