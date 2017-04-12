@@ -97,6 +97,9 @@
       (load-file "~/.emacs.d/google/init.el"))
   (message "skipping google"))
 
+;; Open .v files with Proof General's Coq mode
+(load "~/.emacs.d/elisp/PG/generic/proof-site")
+
 ;; On OSX, windowed Emacs does not get same environment variables as
 ;; shell Emacs. This ensures that the $PATH variable is set correctly.
 (when (memq window-system '(mac ns))
