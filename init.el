@@ -114,6 +114,9 @@
 (use-package "rainbow-delimiters")
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
+(use-package ensime
+  :ensure t)
+
 ;; Load tuareg site file. Add opam emacs directory to the load-path
 ;; TODO: Make these conditional on opam being installed and add them back
 
