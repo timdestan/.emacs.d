@@ -1,6 +1,10 @@
 ;; TODO: This causes issues if there is another Emacs running.
 (server-start)
 
+(add-to-list 'load-path "~/.emacs.d/elisp/")
+
+(require 'my-custom-commands)
+
 (setq
  inhibit-startup-screen t
  create-lockfiles nil
@@ -63,7 +67,7 @@
 
 (defalias 'qrr 'query-replace-regexp)
 
-(global-set-key "\C-w" 'backward-kill-word)
+(global-set-key "\C-w" 'backward-kill-word-or-region)
 (global-set-key "\C-x\C-k" 'kill-region)
 (global-set-key "\C-c\C-k" 'kill-region)
 
