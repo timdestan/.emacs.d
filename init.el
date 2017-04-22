@@ -14,7 +14,6 @@
  show-paren-delay 0.5
  use-package-always-ensure t
  sentence-end-double-space nil
- require-final-newline t
 
  c-basic-indent 2
  rust-indent-offset 2
@@ -39,8 +38,7 @@
 
 (set-face-attribute 'default nil :height 160)
 
-;; Pretty good, until I find something better.
-(ido-mode 1)
+(setq ring-bell-function 'ignore)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -75,6 +73,7 @@
 (global-set-key (kbd "C-c C-m") 'execute-extended-command)
 
 (global-set-key (kbd "C-h C-f") 'describe-function)
+(global-set-key (kbd "C-h C-v") 'describe-variable)
 
 (global-unset-key (kbd "s-^")) ;; kill-some-buffers
 
