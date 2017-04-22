@@ -30,15 +30,10 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
+;; Not sure why this is useful.
 (set-keyboard-coding-system nil)
 
 (set-face-attribute 'default nil :height 160)
-
-;; Free up screen real estate.
-(if (functionp 'menu-bar-mode)
-    (menu-bar-mode -1))
-(if (functionp 'tool-bar-mode)
-    (tool-bar-mode -1))
 
 ;; Pretty good, until I find something better.
 (ido-mode 1)
@@ -52,7 +47,7 @@
  '(indent-tabs-mode nil)
  '(package-selected-packages
    (quote
-    (markdown-mode rust-mode haskell-mode rainbow-delimiters git-gutter exec-path-from-shell use-package)))
+    (better-defaults markdown-mode rust-mode haskell-mode rainbow-delimiters git-gutter exec-path-from-shell use-package)))
  '(standard-indent 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
