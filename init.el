@@ -49,7 +49,7 @@
  '(indent-tabs-mode nil)
  '(package-selected-packages
    (quote
-    (better-defaults markdown-mode rust-mode haskell-mode rainbow-delimiters git-gutter exec-path-from-shell use-package)))
+    (mwim better-defaults markdown-mode rust-mode haskell-mode rainbow-delimiters git-gutter exec-path-from-shell use-package)))
  '(standard-indent 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -64,6 +64,9 @@
 ;; https://sites.google.com/site/steveyegge2/effective-emacs
 
 (defalias 'qrr 'query-replace-regexp)
+
+(global-set-key [remap move-beginning-of-line] #'mwim-beginning-of-code-or-line)
+(global-set-key [remap move-end-of-line] #'mwim-end-of-code-or-line)
 
 (global-set-key (kbd "C-w") 'backward-kill-word-or-region)
 (global-set-key (kbd "C-x C-k") 'kill-region)
