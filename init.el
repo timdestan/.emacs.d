@@ -90,9 +90,12 @@
  package-archive-priorities '(("melpa-stable" . 1)))
 
 (package-initialize)
-(when (not package-archive-contents)
-  (package-refresh-contents)
-  (package-install 'use-package))
+;; TODO: This sometimes causes problems when cached versions are too old. But
+;; maybe don't want to slow down startup by checking every time.
+(unless package-archive-contents
+  (package-refresh-contents))
+(package-install-selected-packages)
+
 (require 'use-package)
 
 ;; Conditionally load Google stuff.
