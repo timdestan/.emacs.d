@@ -21,6 +21,11 @@
  tab-stop-list (number-sequence 2 200 2)
  indent-line-function 'insert-tab
 
+ ;; This works fine in some modes, but causes Emacs to insert a tab character
+ ;; after each return for any file type where it doesn't understand the proper
+ ;; syntax.
+ electric-indent-mode nil
+
  ;; Mac-specific options.
  mac-option-key-is-meta t
  mac-command-key-is-meta nil)
