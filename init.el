@@ -111,7 +111,11 @@
   (message "skipping google"))
 
 ;; Open .v files with Proof General's Coq mode
-(load "~/.emacs.d/elisp/PG/generic/proof-site")
+;;
+;; Make it optional, so that it works on a machine
+;; that hasn't activated the submodule.
+(if (file-directory-p "~/.emacs.d/elisp/PG/generic")
+    (load "~/.emacs.d/elisp/PG/generic/proof-site"))
 
 ;; On OSX, windowed Emacs does not get same environment variables as
 ;; shell Emacs. This ensures that the $PATH variable is set correctly.
@@ -123,7 +127,9 @@
 ;; I have neither confirmed nor denied this myself.
 ;; Code is from https://github.com/tonsky/FiraCode/wiki/Setting-up-Emacs
 (when (memq window-system '(mac ns))
-  (set-default-font "Fira Code")
+  (if (null (x-list-fonts "Fira Code"))
+      (message "Fira Code not found. You may want to install it.")
+      (set-default-font "Fira Code"))
   (let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
                  (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
                  (36 . ".\\(?:>\\)")
