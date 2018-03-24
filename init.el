@@ -83,7 +83,8 @@
 (global-set-key (kbd "C-h C-f") 'describe-function)
 (global-set-key (kbd "C-h C-v") 'describe-variable)
 
-(global-unset-key (kbd "s-^")) ;; kill-some-buffers
+(global-unset-key (kbd "s-^"))   ;; kill-some-buffers
+(global-unset-key (kbd "C-h h")) ;; view-hello-file
 
 ;; the package manager
 (require 'package)
