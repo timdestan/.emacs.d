@@ -54,7 +54,7 @@
  '(indent-tabs-mode nil)
  '(package-selected-packages
    (quote
-    (idris-mode mwim better-defaults markdown-mode rust-mode haskell-mode rainbow-delimiters git-gutter exec-path-from-shell use-package)))
+    (ensime idris-mode mwim better-defaults markdown-mode rust-mode haskell-mode rainbow-delimiters git-gutter exec-path-from-shell use-package)))
  '(standard-indent 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
