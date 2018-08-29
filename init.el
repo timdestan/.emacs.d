@@ -107,6 +107,8 @@
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+(setq-default major-mode 'markdown-mode)
+
 ;; Trying out some suggestions from Steve Yegge's effective emacs:
 ;; https://sites.google.com/site/steveyegge2/effective-emacs
 
