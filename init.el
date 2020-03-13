@@ -1,5 +1,9 @@
-;; TODO: This causes issues if there is another Emacs running.
-(server-start)
+
+;; Start server for emacsclients.
+(require 'server)
+(if (server-running-p)
+    (message "Server already running.")
+  (server-start))
 
 (add-to-list 'load-path "~/.emacs.d/elisp/")
 
