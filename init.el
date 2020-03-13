@@ -49,7 +49,7 @@
  '(indent-tabs-mode nil)
  '(package-selected-packages
    (quote
-    (ensime idris-mode mwim markdown-mode rust-mode haskell-mode rainbow-delimiters git-gutter exec-path-from-shell use-package)))
+    (flycheck lsp-mode mwim markdown-mode rust-mode haskell-mode rainbow-delimiters git-gutter exec-path-from-shell use-package)))
  '(standard-indent 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -146,7 +146,8 @@
   (package-refresh-contents))
 (package-install-selected-packages)
 
-(require 'use-package)
+(eval-when-compile
+  (require 'use-package))
 
 ;; Conditionally load Google stuff.
 (if (file-exists-p "~/.emacs.d/google/init.el")
@@ -205,14 +206,18 @@
       (set-char-table-range composition-function-table (car char-regexp)
                             `([,(cdr char-regexp) 0 font-shape-gstring])))))
 
-(use-package "git-gutter")
-(global-git-gutter-mode +1)
+(use-package "git-gutter"
+  :config
+  (global-git-gutter-mode +1))
 
-(use-package "rainbow-delimiters")
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+(use-package "rainbow-delimiters"
+  :hook (prog-mode . rainbow-delimiters-mode))
 
-(use-package ensime
-  :ensure t)
+(use-package flycheck
+  :hook (prog-mode . flycheck-mode))
+
+(with-eval-after-load 'flycheck
+  (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
 
 ;; Load tuareg site file. Add opam emacs directory to the load-path
 ;; TODO: Make these conditional on opam being installed and add them back
