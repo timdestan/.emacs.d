@@ -49,11 +49,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (wombat)))
+ '(custom-enabled-themes '(wombat))
  '(indent-tabs-mode nil)
  '(package-selected-packages
-   (quote
-    (flycheck lsp-mode mwim markdown-mode rust-mode haskell-mode rainbow-delimiters git-gutter exec-path-from-shell use-package)))
+   '(flycheck lsp-mode mwim markdown-mode rust-mode haskell-mode rainbow-delimiters git-gutter exec-path-from-shell use-package))
  '(standard-indent 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -137,18 +136,29 @@
 ;; the package manager
 (require 'package)
 (setq
- package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                    ("org" . "http://orgmode.org/elpa/")
-                    ("melpa" . "http://melpa.org/packages/")
-                    ("melpa-stable" . "http://stable.melpa.org/packages/"))
+ package-archives
+ '(("gnu" . "https://elpa.gnu.org/packages/")
+   ("org" . "https://orgmode.org/elpa/")
+   ("melpa" . "https://melpa.org/packages/")
+   ("melpa-stable" . "https://stable.melpa.org/packages/"))
  package-archive-priorities '(("melpa-stable" . 1)))
-
 (package-initialize)
-;; TODO: This sometimes causes problems when cached versions are too old. But
-;; maybe don't want to slow down startup by checking every time.
-(unless package-archive-contents
-  (package-refresh-contents))
 (package-install-selected-packages)
+
+;; It can be extremely annoying to get package
+;; installation to work on a fresh install of Emacs.
+;; Some of the following can be uncommented but
+;; should probably not be left in the default init
+;; file. Disabling signature checking is insecure
+;; but necessary to bootstrap the installation
+;; process when we don't have the keyring package
+;; but we need that package to trust the archive.
+;;
+;; (setq package-check-signature nil)
+;; (package-refresh-contents)
+;; (package-install 'gnu-elpa-keyring-update)
+;; (gnu-elpa-keyring-update)
+;; (package-refresh-contents)
 
 (eval-when-compile
   (require 'use-package))

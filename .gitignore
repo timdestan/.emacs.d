@@ -1,6 +1,7 @@
 auto-save-list/
 backups/
 elpa/
+eln-cache/
 ido.last
 
 # Don't include Google stuff in public github
