@@ -8,6 +8,7 @@
 (add-to-list 'load-path "~/.emacs.d/elisp/")
 
 (require 'my-custom-commands)
+(require 'masked-theme)
 
 (setq
  inhibit-startup-screen t
@@ -49,7 +50,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(wombat))
+ '(custom-enabled-themes '(masked))
  '(indent-tabs-mode nil)
  '(package-selected-packages
    '(flycheck lsp-mode mwim markdown-mode rust-mode haskell-mode rainbow-delimiters git-gutter exec-path-from-shell use-package))
