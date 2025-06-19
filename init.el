@@ -9,6 +9,7 @@
 
 (require 'my-custom-commands)
 (require 'masked-theme)
+(require 'go-mode)
 
 (setq
  inhibit-startup-screen t
