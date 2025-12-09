@@ -8,7 +8,8 @@
 (add-to-list 'load-path "~/.emacs.d/elisp/")
 
 (require 'my-custom-commands)
-(require 'masked-theme)
+;; (require 'masked-theme)
+(require 'dark-blue2-theme)
 (require 'go-mode)
 
 (setq
@@ -51,7 +52,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(masked))
+ '(custom-enabled-themes '(dark-blue2))
  '(indent-tabs-mode nil)
  '(package-selected-packages
    '(flycheck lsp-mode mwim markdown-mode rust-mode haskell-mode rainbow-delimiters git-gutter exec-path-from-shell use-package))
@@ -111,6 +112,12 @@
 
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+(add-hook 'go-mode-hook
+          (lambda ()
+            (setq tab-width 4)
+            (setq indent-tabs-mode t)
+            (add-hook 'before-save-hook #'gofmt-before-save)))
 
 (setq-default major-mode 'markdown-mode)
 
@@ -179,9 +186,7 @@
 (if (file-directory-p "~/.emacs.d/elisp/PG/generic")
     (load "~/.emacs.d/elisp/PG/generic/proof-site"))
 
-;; On OSX, windowed Emacs does not get same environment variables as
-;; shell Emacs. This ensures that the $PATH variable is set correctly.
-(when (memq window-system '(mac ns))
+(when (memq window-system '(mac ns x))
   (use-package "exec-path-from-shell")
   (exec-path-from-shell-initialize))
 
