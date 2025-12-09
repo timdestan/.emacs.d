@@ -16,6 +16,7 @@
  inhibit-startup-screen t
  create-lockfiles nil
  make-backup-files nil
+ auto-save-default nil
  column-number-mode t
  scroll-error-top-bottom t
  show-paren-delay 0.5
