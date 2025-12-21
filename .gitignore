@@ -6,3 +6,5 @@ ido.last
 
 # Don't include Google stuff in public github
 google/
+
+.lsp-session-*
