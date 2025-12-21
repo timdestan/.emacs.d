@@ -1,4 +1,3 @@
-
 ;; Start server for emacsclients.
 (require 'server)
 (if (server-running-p)
@@ -6,11 +5,6 @@
   (server-start))
 
 (add-to-list 'load-path "~/.emacs.d/elisp/")
-
-(require 'my-custom-commands)
-;; (require 'masked-theme)
-(require 'dark-blue2-theme)
-(require 'go-mode)
 
 (setq
  inhibit-startup-screen t
@@ -178,6 +172,12 @@
 (eval-when-compile
   (require 'use-package))
 
+(require 'my-custom-commands)
+(require 'go-mode)
+
+(require 'dark-blue2-theme)
+(load-theme 'dark-blue2 t)
+
 ;; Conditionally load Google stuff.
 (if (file-exists-p "~/.emacs.d/google/init.el")
     (progn
@@ -196,9 +196,10 @@
   (use-package "exec-path-from-shell")
   (exec-path-from-shell-initialize))
 
-(if (null (x-list-fonts "Fira Code"))
-    (message "Fira Code not found. You may want to install it.")
-  (set-face-attribute 'default nil :family "Fira Code"))
+(when (display-graphic-p)
+  (if (null (x-list-fonts "Fira Code"))
+      (message "Fira Code not found. You may want to install it.")
+    (set-face-attribute 'default nil :family "Fira Code")))
 
 (let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
                (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
