@@ -65,6 +65,9 @@
   (ido-mode t)
   (setq ido-enable-flex-matching t)
 
+  (set-language-environment "UTF-8")
+  (prefer-coding-system 'utf-8)
+
   (menu-bar-mode -1)
   (if window-system
       (menu-bar-mode 1))
