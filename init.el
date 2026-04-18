@@ -177,6 +177,7 @@
 
 (require 'my-custom-commands)
 (require 'go-mode)
+(require 'odin-mode)
 
 (require 'dark-blue2-theme)
 (load-theme 'dark-blue2 t)
