@@ -1,12 +1,12 @@
-;;; bluegreen-theme.el --- bluegreen theme
+;;; seafloor-dark-theme.el --- seafloor-dark theme
 
 ;;; Code:
 
-(deftheme bluegreen
-  "bluegreen theme")
+(deftheme seafloor-dark
+  "seafloor-dark theme")
 
 (custom-theme-set-faces
- 'bluegreen
+ 'seafloor-dark
 
  ;; Core
 
@@ -70,6 +70,6 @@
   (add-to-list 'custom-theme-load-path
                (file-name-as-directory (file-name-directory load-file-name))))
 
-(provide-theme 'bluegreen)
+(provide-theme 'seafloor-dark)
 
-;;; bluegreen-theme.el ends here
+;;; seafloor-dark-theme.el ends here

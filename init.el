@@ -182,8 +182,8 @@
             (add-hook 'before-save-hook #'lsp-format-buffer t t)
             (add-hook 'before-save-hook #'lsp-organize-imports t t)))
 
-(require 'bluegreen-theme)
-(load-theme 'bluegreen t)
+(require 'seafloor-dark-theme)
+(load-theme 'seafloor-dark t)
 
 ;; Conditionally load Google stuff.
 (if (file-exists-p "~/.emacs.d/google/init.el")
