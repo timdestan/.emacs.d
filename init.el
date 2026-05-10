@@ -112,16 +112,6 @@
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-(require 'lsp-mode)
-(add-hook 'go-mode-hook #'lsp-deferred)
-
-(add-hook 'go-mode-hook
-          (lambda ()
-            (setq tab-width 4)
-            (setq indent-tabs-mode t)
-            (add-hook 'before-save-hook #'lsp-format-buffer t t)
-            (add-hook 'before-save-hook #'lsp-organize-imports t t)))
-
 (setq-default major-mode 'markdown-mode)
 
 ;; Trying out some suggestions from Steve Yegge's effective emacs:
@@ -178,6 +168,16 @@
 (require 'my-custom-commands)
 (require 'go-mode)
 (require 'odin-mode)
+
+(require 'lsp-mode)
+(add-hook 'go-mode-hook #'lsp-deferred)
+
+(add-hook 'go-mode-hook
+          (lambda ()
+            (setq tab-width 4)
+            (setq indent-tabs-mode t)
+            (add-hook 'before-save-hook #'lsp-format-buffer t t)
+            (add-hook 'before-save-hook #'lsp-organize-imports t t)))
 
 (require 'dark-blue2-theme)
 (load-theme 'dark-blue2 t)

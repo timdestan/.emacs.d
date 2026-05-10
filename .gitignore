@@ -4,6 +4,8 @@ elpa/
 eln-cache/
 ido.last
 
+server/server
+
 # Don't include Google stuff in public github
 google/
 
