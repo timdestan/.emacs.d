@@ -58,6 +58,11 @@
  '(diff-hl-insert             ((t (:background "#54ce6240" :foreground "#54ce62"))))
  '(diff-hl-change             ((t (:background "#f9e2af40" :foreground "#f9e2af"))))
  '(diff-hl-delete             ((t (:background "#f38ba840" :foreground "#f38ba8"))))
+
+ ;; Flycheck
+
+ '(flycheck-error             ((t (:underline (:style wave :color "#f38ba8")))))
+ '(flycheck-warning           ((t (:underline (:style wave :color "#f9e2af")))))
 )
 
 ;;;###autoload
