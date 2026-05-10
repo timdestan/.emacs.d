@@ -51,7 +51,9 @@
  '(custom-safe-themes t)
  '(indent-tabs-mode nil)
  '(package-selected-packages
-   '(company flycheck lsp-mode mwim markdown-mode rust-mode haskell-mode rainbow-delimiters git-gutter exec-path-from-shell use-package))
+   '(company exec-path-from-shell flycheck git-gutter haskell-mode
+             lsp-mode markdown-mode mwim rainbow-delimiters
+             rainbow-mode rust-mode use-package))
  '(standard-indent 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -179,8 +181,8 @@
             (add-hook 'before-save-hook #'lsp-format-buffer t t)
             (add-hook 'before-save-hook #'lsp-organize-imports t t)))
 
-(require 'dark-blue2-theme)
-(load-theme 'dark-blue2 t)
+(require 'bluegreen-theme)
+(load-theme 'bluegreen t)
 
 ;; Conditionally load Google stuff.
 (if (file-exists-p "~/.emacs.d/google/init.el")
@@ -248,11 +250,16 @@
 (use-package "rainbow-delimiters"
   :hook (prog-mode . rainbow-delimiters-mode))
 
+(use-package "rainbow-mode"
+  :ensure t
+  :hook (prog-mode . rainbow-mode))
+
 (use-package flycheck
   :hook (prog-mode . flycheck-mode))
 
 (with-eval-after-load 'flycheck
-  (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
+  (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
+  (setq flycheck-mode-line-color nil))
 
 ;; Load tuareg site file. Add opam emacs directory to the load-path
 ;; TODO: Make these conditional on opam being installed and add them back
