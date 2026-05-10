@@ -235,6 +235,12 @@
     (set-char-table-range composition-function-table (car char-regexp)
                           `([,(cdr char-regexp) 0 font-shape-gstring]))))
 
+(when (eq window-system 'w32)
+  (setq explicit-shell-file-name "powershell")
+  (defvar explicit-powershell-args nil)
+  ;; Note: -NoProfile may speed this up.
+  (setq explicit-powershell-args '("-NoExit" "-NonInteractive")))
+
 (use-package "git-gutter"
   :config
   (global-git-gutter-mode +1))

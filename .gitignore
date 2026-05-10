@@ -10,3 +10,5 @@ server/server
 google/
 
 .lsp-session-*
+
+ielm-history.eld
