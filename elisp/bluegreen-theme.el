@@ -14,7 +14,7 @@
  '(cursor            ((t (:background "#8ADF90"))))
  '(region            ((t (:background "#133383"))))
  '(mouse             ((t (:background "Grey"))))
- '(fringe            ((t (:background "#1e1e2e"))))
+ '(fringe            ((t (:background "#042328"))))
 
  ;; '(highlight                  ((t (:background "#313244"))))
  ;; '(hl-line                    ((t (:background "#181825"))))
