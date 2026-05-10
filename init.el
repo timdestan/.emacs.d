@@ -72,9 +72,8 @@
   (set-language-environment "UTF-8")
   (prefer-coding-system 'utf-8)
 
-  (menu-bar-mode -1)
-  (if window-system
-      (menu-bar-mode 1))
+  (unless (memq window-system '(mac ns))
+    (menu-bar-mode -1))
   (when (fboundp 'tool-bar-mode)
     (tool-bar-mode -1))
   (when (fboundp 'scroll-bar-mode)
