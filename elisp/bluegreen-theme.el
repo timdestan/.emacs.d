@@ -12,7 +12,7 @@
 
  '(default           ((t (:background "#042328" :foreground "#A8A88D"))))
  '(cursor            ((t (:background "#8ADF90"))))
- '(region            ((t (:background "#000FFF"))))
+ '(region            ((t (:background "#133383"))))
  '(mouse             ((t (:background "Grey"))))
  '(fringe            ((t (:background "#1e1e2e"))))
 
@@ -43,12 +43,21 @@
 
  ;; Line numbers
 
- '(line-number                ((t (:foreground "#45475a"))))
- '(line-number-current-line   ((t (:foreground "#cba6f7" :bold t))))
+ '(line-number                ((t (:foreground "#1e4a52"))))
+ '(line-number-current-line   ((t (:foreground "#5e8c85"))))
 
  ;; Parens
 
  '(show-paren-match           ((t (:foreground "#1e1e2e" :background "#cba6f7" :weight bold))))
+
+ ;; Git gutter (git-gutter and diff-hl)
+
+ '(git-gutter:added           ((t (:foreground "#54ce62"))))
+ '(git-gutter:modified        ((t (:foreground "#f9e2af"))))
+ '(git-gutter:deleted         ((t (:foreground "#f38ba8"))))
+ '(diff-hl-insert             ((t (:background "#54ce6240" :foreground "#54ce62"))))
+ '(diff-hl-change             ((t (:background "#f9e2af40" :foreground "#f9e2af"))))
+ '(diff-hl-delete             ((t (:background "#f38ba840" :foreground "#f38ba8"))))
 )
 
 ;;;###autoload

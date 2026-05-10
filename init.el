@@ -40,6 +40,8 @@
 
 (set-face-attribute 'default nil :height 160)
 
+(global-display-line-numbers-mode 1)
+
 (setq ring-bell-function 'ignore)
 
 (custom-set-variables
