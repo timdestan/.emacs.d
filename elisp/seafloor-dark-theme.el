@@ -21,7 +21,7 @@
 
  ;; Font lock
 
- '(font-lock-keyword-face       ((t (:foreground "#B3C4C5"))))
+ '(font-lock-keyword-face       ((t (:foreground "#d6e3e4"))))
  '(font-lock-function-name-face ((t (:foreground "#A8A88D"))))
  '(font-lock-variable-name-face ((t (:foreground "#A8A88D"))))
  '(font-lock-constant-face      ((t (:foreground "#73AAA9"))))
@@ -48,7 +48,7 @@
 
  ;; Parens
 
- '(show-paren-match           ((t (:foreground "#1e1e2e" :background "#cba6f7" :weight bold))))
+ '(show-paren-match           ((t (:foreground "#1e1e2e" :background "#00e5bf" :weight bold))))
 
  ;; Git gutter (git-gutter and diff-hl)
 
